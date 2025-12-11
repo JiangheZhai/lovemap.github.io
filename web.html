@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的第一个网站</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: white;
+        }
+        
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .description {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        
+        .image-container {
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            margin: 20px auto;
+            max-width: 900px;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .info {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 30px;
+            text-align: left;
+        }
+        
+        .info h2 {
+            margin-bottom: 10px;
+        }
+        
+        .info ul {
+            padding-left: 20px;
+        }
+        
+        .info li {
+            margin: 8px 0;
+        }
+        
+        footer {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .description { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 欢迎来到我的第一个网站！</h1>
+        
+        <p class="description">
+            这是一个简单的图片展示网站<br>
+            只需替换图片即可自定义你的网站
+        </p>
+        
+        <div class="image-container">
+            <!-- 这里是你的图片 -->
+            <img src="changsha.png" alt="我的图片" id="main-image">
+        </div>
+        
+        <div class="info">
+            <h2>📋 如何自定义这个网站：</h2>
+            <ul>
+                <li>将你的图片文件重命名为 <strong>my-image.jpg</strong></li>
+                <li>放入与此HTML文件相同的文件夹</li>
+                <li>刷新浏览器页面查看效果</li>
+            </ul>
+        </div>
+        
+        <footer>
+            这是一个由HTML+CSS创建的静态网页 | 创建于 <span id="current-date">2024年</span>
+        </footer>
+    </div>
+
+    <script>
+        // 显示当前日期
+        const now = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('current-date').textContent = now.toLocaleDateString('zh-CN', options);
+        
+        // 图片加载失败的提示
+        document.getElementById('main-image').onerror = function() {
+            this.src = "https://via.placeholder.com/800x450/667eea/ffffff?text=请替换为my-image.jpg";
+            this.alt = "图片加载失败，请确保图片文件名为my-image.jpg";
+        };
+    </script>
+</body>
+</html>
